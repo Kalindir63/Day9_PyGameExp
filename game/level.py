@@ -4,7 +4,7 @@ from pathlib import Path
 import pygame
 import pygame.locals
 
-from map.tileCache import TileCache
+from game.tileCache import TileCache
 
 ASSETS_FOLDER = Path(__file__).parent.parent / "Assets"
 

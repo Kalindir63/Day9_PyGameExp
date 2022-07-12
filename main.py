@@ -3,11 +3,12 @@ from pygame.locals import *
 import pygame.locals
 from pathlib import Path
 
-from map.level import Level
-from map.sprite import Sprite
-from map.tileCache import TileCache
+from game.level import Level
+from game.sprite import Sprite
+from game.tileCache import TileCache
 
 ASSETS_FOLDER = Path(__file__).parent / "Assets"
+
 
 class App:
     def __init__(self):
@@ -17,8 +18,8 @@ class App:
         self.size = self.width, self.height = 640, 400
         # self._filename = filename
         self.SPRITE_CACHE = TileCache(32, 32)
-        self.speed = [2,2]
-        self.black = 0,0,0
+        self.speed = [2, 2]
+        self.black = 0, 0, 0
 
     def on_init(self):
         # print("Initializing Pygame")
@@ -31,21 +32,23 @@ class App:
         self.level.load_file('level.map')
 
         self.ball = pygame.image.load(ASSETS_FOLDER / "intro_ball.gif")
-        self.ball_rect = self.ball.get_rect()
-
+        self.ball_position = self.ball.get_rect()
 
         clock = pygame.time.Clock()
 
-        # self.background, overlay_dict = self.level.render()
+        self.background, overlay_dict = self.level.render()
         # self.overlays = pygame.sprite.RenderUpdates()
         # for (x, y), image in overlay_dict.items():
         #     overlay = pygame.sprite.Sprite(self.overlays)
         #     overlay.image = image
         #     overlay.rect = image.get_rect().move(x * 24, y * 16 - 16)
-        # self._display_surf.blit(self.background, (0, 0))
+        self._display_surf.blit(self.background, (0, 0))
+        self._display_surf.blit(self.ball, self.ball_position)
 
         # clock.tick(15)
 
+        # self._display_surf.fill(self.black)
+        pygame.display.update()
         self._running = True
 
     def on_event(self, event):
@@ -61,10 +64,10 @@ class App:
         #     sprite = Sprite(pos, self.SPRITE_CACHE[tile["sprite"]])
         #     self.sprites.add(sprite)
 
-        self.ball_rect = self.ball_rect.move(self.speed)
-        if self.ball_rect.left < 0 or self.ball_rect.right > self.width:
+        self.ball_position = self.ball_position.move(self.speed)
+        if self.ball_position.left < 0 or self.ball_position.right > self.width:
             self.speed[0] = -self.speed[0]
-        if self.ball_rect.top < 0 or self.ball_rect.bottom > self.height:
+        if self.ball_position.top < 0 or self.ball_position.bottom > self.height:
             self.speed[1] = -self.speed[1]
 
         pass
@@ -75,10 +78,13 @@ class App:
         # self.overlays.draw(self._display_surf)
         # pygame.display.update(dirty)
         # pygame.display.flip()
-        self._display_surf.fill(self.black)
-        self._display_surf.blit(self.ball, self.ball_rect)
-        pygame.display.flip()
-        pass
+        self._display_surf.blit(self.background, self.ball_position, self.ball_position)
+        self._display_surf.blit(self.ball, self.ball_position)
+
+
+        # pygame.display.flip()
+        pygame.display.update()
+        # pygame.time.delay(100)
 
     def on_cleanup(self):
         # print("cleaning up")
