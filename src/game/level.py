@@ -2,9 +2,8 @@ import configparser
 from pathlib import Path
 
 import pygame
-from pygame.locals import *
 
-from game.tileCache import TileCache
+from src.game.tileCache import TileCache
 
 ASSETS_FOLDER = Path(__file__).parent.parent / "Assets"
 
@@ -24,7 +23,7 @@ class Level(object):
 
     def load_file(self, filename="level.map"):
         parser = configparser.ConfigParser()
-        parser.read(filename)
+        parser.read(Path(__file__) / filename)
         self.tileset = parser.get('level', 'tileset')
         self.map = parser.get('level', 'map').split('\n')
         for section in parser.sections():

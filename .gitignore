@@ -1,5 +1,5 @@
-Assets/**/*
-!Assets/*
+src/Assets/**/*
+!src/Assets/*
 Assets/*.zip
 .vscode/*
 !.vscode/settings.json

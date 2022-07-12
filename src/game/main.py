@@ -1,14 +1,12 @@
 import pygame
-from pygame.locals import *
 
 from pathlib import Path
 
-from game.gameObject import GameObject
-from game.level import Level
-from game.sprite import Sprite
-from game.tileCache import TileCache
+from src.game.gameObject import GameObject
+from src.game.level import Level
+from src.game.tileCache import TileCache
 
-ASSETS_FOLDER = Path(__file__).parent / "Assets"
+ASSETS_FOLDER = Path(__file__).parent.parent / "Assets"
 
 
 class App:
