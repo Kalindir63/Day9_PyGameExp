@@ -1,8 +1,9 @@
 import pygame
 from pygame.locals import *
-import pygame.locals
+
 from pathlib import Path
 
+from game.gameObject import GameObject
 from game.level import Level
 from game.sprite import Sprite
 from game.tileCache import TileCache
@@ -22,19 +23,19 @@ class App:
         self.black = 0, 0, 0
 
     def on_init(self):
-        # print("Initializing Pygame")
         pygame.init()
-        # self._display_surf = pygame.display.set_mode(self.size, pygame.HWSURFACE | pygame.DOUBLEBUF)
-        self._display_surf = pygame.display.set_mode(self.size)
-        # self._display_surf.fill((255, 255, 255))
+        self._display_surf = pygame.display.set_mode(self.size, pygame.HWSURFACE | pygame.DOUBLEBUF)
 
+        # Create level
         self.level = Level()
         self.level.load_file('level.map')
 
-        self.ball = pygame.image.load(ASSETS_FOLDER / "intro_ball.gif")
-        self.ball_position = self.ball.get_rect()
-
-        clock = pygame.time.Clock()
+        ball = pygame.image.load(ASSETS_FOLDER / "intro_ball.gif")#.convert()
+        # self.ball_position = self.ball.get_rect()
+        self.balls = []
+        for x in range(10):
+            o = GameObject(ball, x*40, self.speed, self.size)
+            self.balls.append(o)
 
         self.background, overlay_dict = self.level.render()
         # self.overlays = pygame.sprite.RenderUpdates()
@@ -42,9 +43,13 @@ class App:
         #     overlay = pygame.sprite.Sprite(self.overlays)
         #     overlay.image = image
         #     overlay.rect = image.get_rect().move(x * 24, y * 16 - 16)
-        self._display_surf.blit(self.background, (0, 0))
-        self._display_surf.blit(self.ball, self.ball_position)
 
+        self._display_surf.blit(self.background, (0, 0))
+
+        for ball in self.balls:
+            self._display_surf.blit(ball.image, ball.pos)
+
+        clock = pygame.time.Clock()
         # clock.tick(15)
 
         # self._display_surf.fill(self.black)
@@ -64,11 +69,11 @@ class App:
         #     sprite = Sprite(pos, self.SPRITE_CACHE[tile["sprite"]])
         #     self.sprites.add(sprite)
 
-        self.ball_position = self.ball_position.move(self.speed)
-        if self.ball_position.left < 0 or self.ball_position.right > self.width:
-            self.speed[0] = -self.speed[0]
-        if self.ball_position.top < 0 or self.ball_position.bottom > self.height:
-            self.speed[1] = -self.speed[1]
+        # self.ball_position = self.ball_position.move(self.speed)
+        # if self.ball_position.left < 0 or self.ball_position.right > self.width:
+        #     self.speed[0] = -self.speed[0]
+        # if self.ball_position.top < 0 or self.ball_position.bottom > self.height:
+        #     self.speed[1] = -self.speed[1]
 
         pass
 
@@ -78,13 +83,18 @@ class App:
         # self.overlays.draw(self._display_surf)
         # pygame.display.update(dirty)
         # pygame.display.flip()
-        self._display_surf.blit(self.background, self.ball_position, self.ball_position)
-        self._display_surf.blit(self.ball, self.ball_position)
+
+        for ball in self.balls:
+            self._display_surf.blit(self.background, ball.pos, ball.pos)
+
+        for ball in self.balls:
+            ball.move()
+            self._display_surf.blit(ball.image, ball.pos)
 
 
         # pygame.display.flip()
         pygame.display.update()
-        # pygame.time.delay(100)
+        pygame.time.delay(100)
 
     def on_cleanup(self):
         # print("cleaning up")

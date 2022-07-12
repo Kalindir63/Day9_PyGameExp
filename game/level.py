@@ -2,7 +2,7 @@ import configparser
 from pathlib import Path
 
 import pygame
-import pygame.locals
+from pygame.locals import *
 
 from game.tileCache import TileCache
 
