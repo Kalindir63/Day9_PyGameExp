@@ -1,5 +1,6 @@
 import pygame
 
+from game.debug import debug
 from game.player import Player
 from game.tile import Tile
 from settings import WORLD_MAP, TILE_SIZE
@@ -31,3 +32,5 @@ class Level:
     def run(self):
         # update and draw the game
         self.visible_sprites.draw(self.display_surface)
+        self.visible_sprites.update()
+        debug(self.player.direction)
