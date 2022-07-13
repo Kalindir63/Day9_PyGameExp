@@ -15,6 +15,7 @@ class Level:
         self.obstacle_sprites = pygame.sprite.Group()
 
         # sprite setup
+        self.player = None
         self.create_map()
 
     def create_map(self):
@@ -25,7 +26,7 @@ class Level:
                 if col == '*':
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == 'p':
-                    Player((x, y), [self.visible_sprites])
+                    self.player = Player((x, y), [self.visible_sprites])
 
     def run(self):
         # update and draw the game
