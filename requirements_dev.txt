@@ -3,3 +3,5 @@ tox==3.25.1
 pytest>=7.0.1
 pytest-cov==3.0.0
 mypy==0.961
+pygame==2.1.2
+setuptools==63.1.0

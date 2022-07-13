@@ -1,7 +1,6 @@
 from pathlib import Path
 
 import pygame
-from pygame.locals import *
 from pygame.surface import Surface
 
 ASSETS_FOLDER = Path(__file__).parent.parent / 'Assets'

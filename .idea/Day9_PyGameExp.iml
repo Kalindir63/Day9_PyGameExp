@@ -3,14 +3,14 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/.mypy_cache" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (Day9_PyGameExp)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (Day9_PyGameExp)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="requirements_dev.txt" />
+    <option name="requirementsPath" value="C:\Users\bradley.COMPRSA\PycharmProjects\Day9_PyGameExp\requirements_dev.txt" />
     <option name="versionSpecifier" value="Strong equality (==x.y.z)" />
   </component>
 </module>
