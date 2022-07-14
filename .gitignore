@@ -1,4 +1,4 @@
-src/Assets/**/*
+src/Assets/Dungeon Crawl Stone Soup Full/*
 !src/Assets/*
 Assets/*.zip
 .vscode/*
