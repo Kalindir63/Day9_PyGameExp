@@ -1,9 +1,6 @@
-import sys
-
-import pygame
-
-from game.level import Level
-from settings import FPS, WIDTH, HEIGHT
+import pygame, sys
+from settings import *
+from level import Level
 
 
 class Game:
@@ -11,7 +8,7 @@ class Game:
 
         # general setup
         pygame.init()
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.screen = pygame.display.set_mode((WIDTH, HEIGTH))
         pygame.display.set_caption('Zelda')
         self.clock = pygame.time.Clock()
 
