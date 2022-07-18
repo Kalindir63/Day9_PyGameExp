@@ -1,7 +1,7 @@
 import pygame
 from settings import *
 from entity import Entity
-from support import *
+from helpers import *
 
 
 class Enemy(Entity):
