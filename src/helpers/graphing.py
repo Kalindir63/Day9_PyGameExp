@@ -1,8 +1,5 @@
-import random
-
 import matplotlib.pyplot as plt
 import numpy as np
-import random
 
 from PIL import Image
 from noise import pnoise1, pnoise2

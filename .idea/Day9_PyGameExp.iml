@@ -5,9 +5,16 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/.mypy_cache" />
-      <excludeFolder url="file://$MODULE_DIR$/Archived Code" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/dungeon" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/effect" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/emissaries" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/gui" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/item" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/misc" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/monster" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Assets/Dungeon Crawl Stone Soup Full/player" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (Day9_PyGameExp)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (Day9_PyGameExp)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
